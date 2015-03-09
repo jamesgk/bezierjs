@@ -845,6 +845,27 @@
         <h1>.area()</h1>
 
         <figures>
+          <figure class="quadratic"><script type="text/beziercode">
+            new Bezier(150,40 , 80,30 , 105,150);
+            var draw = function() {
+              drawSkeleton(curve);
+              drawCurve(curve);
+            }
+            var draw = function() {
+              setFill(curve.area() < 0 ? "#ff7f7f" : "#7fff7f");
+              drawCurve(curve, {x: 0, y: 0}, true);
+
+              drawSkeleton(curve);
+              drawCurve(curve);
+
+              var p1 = curve.points[0],
+                p3 = curve.points[2];
+              setFill("black");
+              drawText("p1", {x:p1.x+7,y:p1.y-3});
+              drawText("p3", {x:p3.x+7,y:p3.y-3});
+              drawText("Area: " + curve.area(), {x: 5, y: 15});
+            }
+          </script></figure>
           <figure class="cubic"><script type="text/beziercode">
             new Bezier(100, 25, 10, 90, 110, 100, 132, 192 );
             var draw = function() {
